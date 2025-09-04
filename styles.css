@@ -3,19 +3,21 @@ body {
 	padding: 0;
 	background-color: lightgrey;
 	text-align: center;
+	box-sizing: border-box;
 }
 
 .square-div {
 	background-color: white;
-	width: 16px;
-	height: 16px;
+	display: inline-block;
 }
 
 .grid-container {
 	display: flex;
 	margin: 50px auto;
-	border: 2px solid black;
 	flex-wrap: wrap;
+	width: 480px;
+	height: 480px;
+	background-color: white;
 }
 
 #input-feedback {
