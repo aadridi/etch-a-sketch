@@ -1,0 +1,23 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: lightgrey;
+	text-align: center;
+}
+
+.square-div {
+	background-color: white;
+	width: 16px;
+	height: 16px;
+}
+
+.grid-container {
+	display: flex;
+	margin: 50px auto;
+	border: 2px solid black;
+	flex-wrap: wrap;
+}
+
+#input-feedback {
+	margin: 20px 20px;
+}
