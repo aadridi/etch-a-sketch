@@ -9,10 +9,12 @@
 	</head>
 	<body>
 		<h1>Project Etch-a-Sketch</h1>
-		<div>
-			<h2>Please start by entering the size of the grid</h2>
+		<h2>Please start by entering the size of the grid</h2>
+		<div class="options">
 			<label for="grid-size">Size of the grid :</label>
-			<input type="number" placeholder="Enter size" id="grid-size" min="1" max="100" />
+			<input type="number" placeholder="Size" id="grid-size" min="1" max="100" />
+			<input type="checkbox" id="random-colors" />
+			<label for="random-colors">Random RGB Colors</label>
 			<button type="button" id="grid-size-btn">Add Grid</button>
 		</div>
 		<div id="input-feedback"></div>

@@ -8,8 +8,18 @@ const turnBlack = (element) => {
 	return (element.style.backgroundColor = 'black');
 };
 
+// Generate a random number between 0 and num
+const randomNum = (num) => {
+	return Math.floor(Math.random() * num);
+};
+
+// Turn an element of the grid into a random RGB color;
+const turnRGB = (element) => {
+	return (element.style.backgroundColor = `rgb(${randomNum(255)}, ${randomNum(255)}, ${randomNum(255)})`);
+};
+
 // Function to create any grid given a size
-const createGrid = (size) => {
+const createGrid = (size, isCheckboxChecked) => {
 	let arrayOfDivs = [];
 
 	for (let i = 0; i < size * size; i++) {
@@ -20,7 +30,12 @@ const createGrid = (size) => {
 		oneSquare.style.width = `${squareSize}px`;
 		oneSquare.style.height = `${squareSize}px`;
 
-		oneSquare.addEventListener('mouseover', (e) => turnBlack(e.target));
+		if (isCheckboxChecked) {
+			oneSquare.addEventListener('mouseover', (e) => turnRGB(e.target), { once: true });
+		} else {
+			oneSquare.addEventListener('mouseover', (e) => turnBlack(e.target), { once: true });
+		}
+
 		arrayOfDivs.push(oneSquare);
 	}
 
@@ -35,7 +50,10 @@ gridSizeBtn.addEventListener('click', () => {
 		return;
 	}
 	gridContainer.textContent = '';
-	const createdGrid = createGrid(inputSizeGrid.value);
+	const checkbox = document.querySelector('#random-colors');
+	const isCheckboxChecked = checkbox.checked;
+	console.log(isCheckboxChecked);
+	const createdGrid = createGrid(inputSizeGrid.value, isCheckboxChecked);
 	inputFeedback.textContent = `A grid of size ${inputSizeGrid.value} by ${inputSizeGrid.value} has been generated!`;
 	/* gridContainer.style.border = '2px solid black'; */
 	gridContainer.append(...createdGrid);
